@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Kontakt eller bokning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+     <a href="index.html"> <h2>Solhem 33</h2> </a>
+    <nav>
+      <a href="faciliteter.html" data-key="infoLink">Info</a>
+      <a href="info.html" data-key="bilderLink">Bilder</a>
+      <a href="contact.html" data-key="bokaLink">Boka</a>
+      <a href="priser.html" data-key="priserLink">Priser</a>
+    </nav>
+
+    <div id="google_translate_element"></div>
+     <button class="menu-toggle" aria-label="Öppna meny">&#9776;</button>
+  </header>
+
+  <main>
+      <p> Vid frågor eller bokning kontakta oss via formuläret nedan, alternativt skicka mejl till: <a href="mailto:bjorn@hqbm.se?subject=Bokningsförfrågan">bjorn@hqbm.se</a>
+</p></p>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="bookingForm">
+      <label for="namn">Namn:</label>
+      <input type="text" id="namn" name="namn" required>
+
+      <label for="email">E-post:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="datum">Datum:</label>
+      <input type="text" id="datum" name="datum" placeholder="10-12 Januari" required>
+
+      <label for="meddelande">Meddelande:</label>
+      <textarea id="meddelande" name="meddelande" rows="4"></textarea>
+
+      <button type="submit">Skicka bokningsförfrågan</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Stuguthyrning i Sverige
+  </footer>
+
+  <script src="functions.js"></script>
+      <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'sv',       // Ursprungligt språk
+        includedLanguages: 'en,no,da,sv', // Språk som erbjuds
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

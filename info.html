@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Stuginformation</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header>
+   <a href="index.html"> <h2>Solhem 33</h2> </a>
+    <nav>
+      <a href="faciliteter.html" data-key="infoLink">Info</a>
+      <a href="info.html" data-key="bilderLink">Bilder</a>
+      <a href="contact.html" data-key="bokaLink">Boka</a>
+      <a href="priser.html" data-key="priserLink">Priser</a>
+    </nav>
+
+    <div id="google_translate_element"></div>
+    <button class="menu-toggle" aria-label="Öppna meny">&#9776;</button>
+  </header>
+
+  <main>
+    <div class="image-album">
+      <div class="album-slide active">
+        <img src="/bilder/stotenframsida.jpg" alt="Framsida stugan">
+        <p>Framsidan av stugan</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/hall.jpeg" alt="Hallen">
+        <p>Rymlig Hall</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/Vardags.jpeg" alt="vardagsrum">
+        <p>Allrum med öppen planlösning</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/tv.jpg" alt="TV-hörna">
+        <p>TV-hörna i vardagsrum</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/Stotenkok.jpg" alt="Matbord">
+        <p>Matbord med plats till minst 8 personer</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/koket.jpeg" alt="Sovrum 2">
+        <p>Fullutrustat kök</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/Spaavdelning.jpg" alt="Spa">
+        <p>Spaavdelning med bastu</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/Bastuoppen.jpeg" alt="Bastu">
+        <p>Bastu</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/sovrumnere.jpg" alt="Sovrum 1">
+        <p>Sovrum 1 nedre plan</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/soffauppe.jpeg" alt="Hall/vardagsrum uppe">
+        <p>Övre hall med soffa och tv</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/tvupp.jpeg" alt="Hall/vardagsrum uppe">
+        <p>Övre hall med soffa och tv</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/hastensov.jpeg" alt="Sovrum 2">
+        <p>Sovrum 2 - övre plan</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/Sovrum3.jpeg" alt="Sovrum 3">
+        <p>Sovrum 3 - övre plan</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/spjal.jpeg" alt="Sovrum 3">
+        <p>Sovrum 3 - övre plan, med spjälsäng</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/alkov.jpeg" alt="sovalkov">
+        <p>Sovalkov övre plan</p>
+      </div>
+      <div class="album-slide">
+        <img src="/bilder/planlösning.png" alt="planlösning">
+        <p>Planlösning</p>
+      </div>
+
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Stuguthyrning Solhem 33
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".album-slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Visa första bilden direkt
+    showSlide(currentSlide);
+  </script>
+    <script src="functions.js"></script>
+    <!-- Google Translate Script -->
+     <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'sv',       // Ursprungligt språk
+        includedLanguages: 'en,no,da,sv', // Språk som erbjuds
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

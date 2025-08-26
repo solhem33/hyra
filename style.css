@@ -1,0 +1,391 @@
+/* === Grundinställningar === */
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f6f6f6;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 1rem;
+}
+
+/* === Header & Navigation === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  color: white;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  position: relative;
+  z-index: 10;
+  gap: 1rem;
+}
+
+header h2 {
+  margin: 0;
+  color: white;
+  text-decoration: none;
+}
+
+header a {
+  text-decoration: none;   /* tar bort underline */
+  color: inherit;          /* gör så att länken ärver textfärgen från h2 */
+}
+
+header a:visited,
+header a:active,
+header a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.3em;
+  border-radius: 5px;
+}
+
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+  color: white;
+}
+
+/* === Main & Footer === */
+main {
+  flex: 1;
+  padding: 1em;
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 2em;
+  background: #ddd;
+  margin-top: 1em auto;
+}
+
+/* === Bildslider (Start) === */
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100vw;
+}
+
+.slides img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+body.start .slider {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+body.start .slider .slides {
+  display: flex;
+  height: 100%;
+}
+
+body.start .slider .slides img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.start .slider button.prev,
+body.start .slider button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  user-select: none;
+}
+
+body.start .slider button.prev { left: 10px; }
+body.start .slider button.next { right: 10px; }
+
+/* === Bildalbum (Info-sidan) === */
+.image-album {
+  position: relative;
+  max-width: 700px;
+  margin: 3em auto;
+  text-align: center;
+  height: 70vh; /* större höjd för bättre mobilvisning */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.album-slide {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.album-slide.active {
+  display: flex;
+}
+
+.album-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ändrad så hela bilden syns */
+}
+
+.album-slide p {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  padding: 0.5em;
+  margin: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.image-album button.prev,
+.image-album button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+}
+
+.image-album button.prev { left: 10px; }
+.image-album button.next { right: 10px; }
+
+/* === Tabell (Priser) === */
+.prislista-container {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.9); /* halvtransparent vitt */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em auto;
+}
+
+th, td {
+  padding: 0.8em;
+  border: 1px solid rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+th {
+  background-color: rgba(0,0,0,0.05);
+}
+
+tr.bokad {
+  background-color: rgba(200,0,0,0.1);
+  color: #b00;
+}
+
+.prislista-container .text-container {
+  margin-top: 1em;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+/* === Formulär (Boka) === */
+form {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 1.5em;
+  border-radius: 8px;
+}
+
+form label {
+  display: block;
+  margin: 0.5em 0 0.2em;
+  text-align: left;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 0.6em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #333;
+}
+
+/* === Hamburgermeny-knapp === */
+.menu-toggle {
+  display: none;
+}
+
+/* === Mobilanpassning === */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  nav {
+    display: none;
+    position: fixed;
+    top: 3.5rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 180px;
+    padding: 0.5em 0;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    display: block;
+    padding: 0.6em 1em;
+    color: white;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .image-album {
+    height: 50vh; /* anpassad höjd på mobil */
+  }
+
+  table, th, td {
+    font-size: 0.85rem;
+  }
+
+  .prislista-container {
+    padding: 1em;
+    margin: 1em;
+  }
+
+  .prislista-container p,
+  .prislista-container .text-container {
+    font-size: 0.9em;
+  }
+
+  .prislista-container table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .prislista-container th,
+  .prislista-container td {
+    font-size: 0.85em;
+  }
+}
+
+/* === Bakgrunder === */
+body.faciliteter {
+  background: url("bilder/sikt.jpeg");
+  background-size: cover;
+}
+
+body.priser {
+  background: url("bilder/backen.JPG");
+  background-size: cover;
+}
+
+/* === Vita rutor === */
+.info-box {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.info-box h1, .info-box h2 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.info-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1.5em 0;
+}
+
+.info-box ul li {
+  margin-bottom: 0.6em;
+  padding: 0.3em 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
