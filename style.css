@@ -390,7 +390,7 @@ body.priser {
 }
 
 .kontakt-ruta {
-  background: url(""bilder/kvall.jpg") center/cover no-repeat; /* byt ut till din egen bild */
+  background: url("bilder/kvall.jpg") center/cover no-repeat; /* byt ut till din egen bild */
   min-height: 400px;
   display: flex;
   justify-content: center;
